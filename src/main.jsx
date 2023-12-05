@@ -2,9 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-import Home from "./component/Home/Home.jsx";
-import About from "./component/About/About.jsx";
-import ContactUs from "./component/ContactUs/ContactUs.jsx";
+import { Github, Home, About, Contact, User, apiLoder } from "./component/index.js"
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -21,12 +19,17 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "about",
-        element: <About />,
+        path: "contactus",
+        element: <Contact />,
       },
       {
-        path: "contactUs",
-        element: <ContactUs />,
+        path: "user/:id",
+        element: <User />,
+      },
+      {
+        loader: apiLoder,
+        path: "github",
+        element: <Github />,
       },
     ],
   },
